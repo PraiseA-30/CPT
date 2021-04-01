@@ -82,7 +82,7 @@ def moveBrick(delta_x,delta_y):
 
 #A function to check for and remove completed lines
 def checkLines():
-    global score
+    global points
     removeLine=False
     #check each line one at a time
     for i in range(0, 5):
@@ -90,7 +90,7 @@ def checkLines():
         if (grid[i][1]+grid[i][2]+grid[i][3]+grid[i][4]+grid[i][5])==45:
             removeLine = True
             #Increment the score (10 pts per line)
-            score+=10
+            points+=10
             #Remove the line and make all lines above fall by 1:
             for j in range(i,0,-1):
                 grid[j] = grid[j-1]
@@ -141,4 +141,4 @@ while gameOn:
 
 #End of Game
 sleep(2000)
-display.scroll("Game Over: Score: " + str(score))
+display.scroll("Game Over: points: " + str(points))
